@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>layout2</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        .parent{
+            border: 2px;
+            height: 600px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            flex-wrap: wrap;
+            align-content: space-evenly;
+            justify-content: center;
+            background-color: black;
+        }
+        .Box{
+            border: 2px grey;
+            height: 400px;
+            width: 300px;
+            background-color: black;
+            border-style: solid;
+            backface-visibility: unset;
+        }
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+            margin-top: 70px;
+        }
+        header {
+            background-color: black;
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 5px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 0 25px 0 black;
+        }
+        header * {
+            display: inline;
+        }
+        header li {
+            margin: 82px;
+        }
+        header li a {
+            color: white;
+            text-decoration: none;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <header>
+    <nav>
+    <ul>
+    <li>
+    <a href="#"> PRODUCTS </a>
+    </li>
+    <li>
+    <a href="#"> DISCOUNTS </a>
+    </li>
+    <li>
+    <a href="#"> OUR PARTNERS </a>
+    </li>
+    <li> <a href="#"> TERMS OF USE </a>
+    </li>
+    <li>
+    <a href="#"> ABOUT US </a>
+    </li>
+    </ul>
+    </nav>
+    </header>
+    <div class="parent">
+        <div class="Box" id="Box-1">
+            <img src="download.jpeg" alt="Matte" style="height: 80px;width: 80px;" class="center">
+            <br>
+            <h2 align="center" style="color: red;">MATTE<br></h2>
+            <br>
+            <p align="center" style="color: grey;">
+            a subtle but elegant <br> finish for low-touch and <br> delecate surfaces
+            <br><br><br>
+            <p align="center" style="color: blue;"><b>Explore</b></p>
+        </p>
+
+        </div>
+        <div class="Box" id="Box-2">
+            <img src="download (1).jpeg" alt="Semi-Gloss" style="height: 80px;width: 80px;" class="center">
+            <br>
+            <h2 align="center" style="color: red;">SEMI-GLOSS<br></h2>
+            <br>
+            <p align="center" style="color: grey;">
+            our signature finish for <br> high-wear parts,details <br> and surfaces
+            <br><br><br>
+            <p align="center" style="color: blue;"><b>Explore</b></p>
+        </p>
+        </div>
+        <div class="Box" id="Box-3">
+            <img src="download (2).jpeg" alt="High-Gloss" style="height: 80px;width: 80px;" class="center">
+            <br>
+            <h2 align="center" style="color: red;">HIGH-GLOSS<br></h2>
+            <br>
+            <p align="center" style="color: grey;">
+            an eye stopping shine <br> best for metal and other <br> smooth surfaces
+            <br><br><br>
+            <p align="center" style="color: blue;"><b>Explore</b></p>
+        </p>
+        </div>
+    </div>
+</body>
+</html>
