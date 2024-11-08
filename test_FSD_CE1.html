@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+    
+</head>
+<body>
+    <div class="content" align="center">
+        <div class="currency" id="converter">
+            <h2>Currency Converter</h2>
+            <div class="currencyafterconversion">
+                <label for="amount">Amount:</label>
+                <input type="number" id="amount" placeholder="amount">
+                <select id="currencylist">
+                    <option value="USD">USD</option>
+                </select>
+            </div>
+            <br><br>
+
+            <div class="currencyafterconversion">
+                <label for="toCurrency">Convert:</label>
+                <input type="text" id="afterconversion" readonly>
+                <select id="toCurrency">
+                </select>
+            </div>
+            <br><br>
+
+            <button onclick="convertCurrency()" id="button">Convert</button>
+
+            <div id="result"></div>
+        </div>
+    </div>
+    <style>
+        #button {
+            width: 40%;
+            padding: 10px;
+            background-color: #4cafa0f1;
+            border: none;
+            color: #ffffff;
+            font-size: 16px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .content{
+            border-radius: 20px;
+            padding: 50px;
+        }
+        *{
+            box-sizing: border-box;
+        }
+
+    </style>
+
+
+
+    <script>
+        function showConverter() {
+            document.getElementById('converter').style.display = 'block';
+        }
+        async function loadCurrencies() {
+            try {
+                const response = await fetch("https://api.exchangerate-api.com/v4/latest/USD");
+                const data = await response.json();
+                const currencyDropdown = document.getElementById('toCurrency');
+                
+                for (const currency in data.rates) {
+                    const option = document.createElement('option');
+                    option.value = currency;
+                    option.text = `${currency} - ${currency}`;
+                    currencyDropdown.add(option);
+                }
+            } catch (error) {
+                console.error("Error", error);
+            }
+        }
+        
+        loadCurrencies();
+        
+        async function convertCurrency() {
+            const currencylist = document.getElementById('currencylist').value;
+            const toCurrency = document.getElementById('toCurrency').value;
+            const amount = document.getElementById('amount').value;
+            const resultDiv = document.getElementById('result');
+            const afterconversionField = document.getElementById('afterconversion');
+        
+            if (amount === "" || isNaN(amount)) {
+                resultDiv.innerText = "Please enter a valid amount.";
+                return;
+            }
+        
+            try {
+                const response = await fetch(`https://api.exchangerate-api.com/v4/latest/${currencylist}`);
+                const data = await response.json();
+                
+                const rate = data.rates[toCurrency];
+                if (!rate) {
+                    resultDiv.innerText = `Conversion rate not available for ${toCurrency}.`;
+                    return;
+                }
+        
+                const afterconversion = (amount * rate).toFixed(2);
+                afterconversionField.value = afterconversion;
+            } catch (error) {
+                resultDiv.innerText = "Error fetching conversion rates. Please try again.";
+            }
+        }
+        
+            
+
+    </script>
+</body>
+</html>

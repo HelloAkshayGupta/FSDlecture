@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="button()">Click me</button>
+
+
+    <script>
+        let c=document.getElementById("button")
+        let url = 'https://api.github.com/users/HelloAkshayGupta';
+        let b = fetch(url);
+        b.then((data) => {
+            console.log(data)
+            return data.json();
+}).then((data) => {
+
+    console.log(data);
+}).catch(() => {
+
+    console.log("Error");
+}).finally(() => {
+    console.log("first");
+})
+    </script>
+    
+</body>
+</html>

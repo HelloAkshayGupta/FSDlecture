@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter Login</title>
+    
+</head>
+<body>
+    <div class="login">
+        <h1>Login</h1>
+        <form  action="test_FSD_CE1.html" id="loginForm">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit" onclick="validate()">Login</button>
+            <button type="reset">Reset</button>
+        </form>
+    </div>
+    
+</body>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: Arial, sans-serif;
+        
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+    }
+    
+    .login {
+        width: 500px;
+        padding: 50px;
+        background-color: #ebf1f2b6;
+        border-radius: 20px;
+        box-shadow: 10px 12px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+    
+    h2 {
+        margin-bottom: 20px;
+    }
+    
+    label {
+        display: inline-block;
+        margin: 10px 10px 5px;
+        font-size: medium;
+        font-weight: bold;
+    }
+    
+    input[type="text"], input[type="password"] {
+        width: 100%;
+        padding: 15px;
+        margin-bottom: 30px;
+        border: 1px solid #181212;
+        border-radius: 3px;
+    }
+    
+    button {
+        width: 40%;
+        padding: 10px;
+        background-color: #4cafa0f1;
+        border: none;
+        color: #ffffff;
+        font-size: 16px;
+        border-radius: 3px;
+        cursor: pointer;
+        
+    }
+    
+    button:hover {
+        background-color: #456ea02d;
+    }
+    
+</style>
+
+        <script>
+            function validate() {
+                const username = document.getElementById("username").value;
+                const password = document.getElementById("password").value;
+            
+                if (username !== "Akshay" || password !== "Akshay123") { 
+                    alert("Invalid username or password.");
+                } 
+            
+            };
+            
+                
+
+                
+            
+        </script>
+
+        
+        
+    </form>
+</body>
+</html>
