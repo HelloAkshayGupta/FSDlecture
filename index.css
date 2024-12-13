@@ -65,4 +65,23 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+  p{
+    color:aqua
+  }
+  h3{
+    color:#646cff;
+  }
+  img{
+    width: 500px;
+    height: 500px;
+    
+  }
+.movies{
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+}
+  
+
 }
