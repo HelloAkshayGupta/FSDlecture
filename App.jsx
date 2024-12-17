@@ -1,9 +1,10 @@
 import React from 'react'
-import Map from './Map.jsx'
+
+import UseRef from './components/UseRef.jsx'
 
 function App() {
   return (
-    <div><Map/></div>
+    <UseRef/>
   )
 }
 
