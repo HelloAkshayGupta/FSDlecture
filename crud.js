@@ -39,6 +39,23 @@ app.get('/users/:id', (req, res) => {
     }
 })
 
+//Update(U)
+app.put('/users/:id',(req,res) =>{
+    const userid = parseInt(req.params.id)
+    const userIndex=database.findIndex(u=> u.id == userid)
+    if(userIndex!=-1){
+        database[userIndex]={...database[userIndex],...req.body}
+        res.json(database[userIndex])
+    }
+    else{
+        res.status(404).json({
+            message: 'user not found'
+        })
+    }
+   
+    
+})
+
 
 app.listen(port,() => {
     console.log(`app is run at ${port}`);
