@@ -51,9 +51,26 @@ app.put('/users/:id',(req,res) =>{
         res.status(404).json({
             message: 'user not found'
         })
-    }
-   
+    }  
     
+})
+
+//Delete(D)
+app.delete('/users/:id',(req,res) =>{
+    const userid=parseInt(req.params.id);
+    const userIndex=database.findIndex(u=> u.id == userid)
+    if (userIndex != -1) {
+        const deleteUser=database.splice(userIndex,1)
+        res.json({
+            message: 'user deleted',
+            user: deleteUser
+        })
+    }
+    else{
+        res.status(404).json({
+            message: 'user not found'
+        })
+    }
 })
 
 
